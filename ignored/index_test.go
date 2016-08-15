@@ -1,7 +1,7 @@
 package ignored
 
 import (
-  "testing"
+	"testing"
 )
 
 func TestParseEmptyFile(t *testing.T) {
@@ -56,7 +56,7 @@ pattern*file
 	if r1 != "/other/(/.*)?$" {
 		t.Errorf("should Rules[1]='/other/(/.*)?$', got Rules[1]=%q\n", r1)
 	}
-  r2 := s.Rules[2].String()
+	r2 := s.Rules[2].String()
 	if r2 != "/file(/.*)?$" {
 		t.Errorf("should Rules[2]='/file(/.*)?$', got Rules[2]=%q\n", r2)
 	}
@@ -75,22 +75,22 @@ func TestComputeDirectory1(t *testing.T) {
 		t.Errorf("should err=nil, got err=%q\n", err)
 	}
 
-  results := s.ComputeDirectory("../fixtures/")
+	results := s.ComputeDirectory("../fixtures/")
 	if len(results) != 13 {
 		t.Errorf("should len(results)='13', got results=%q\n", results)
 	}
-  if contains(results, "/dira/fileb") == false {
+	if contains(results, "/dira/fileb") == false {
 		t.Errorf("should results should contain '/dira/fileb', got results=%q\n", results)
-  }
-  if contains(results, "/dira") {
+	}
+	if contains(results, "/dira") {
 		t.Errorf("should results should not contain '/dira', got results=%q\n", results)
-  }
-  if contains(results, "/dirb") {
+	}
+	if contains(results, "/dirb") {
 		t.Errorf("should results should not contain '/dirb', got results=%q\n", results)
-  }
-  if contains(results, "/dirb/other") {
+	}
+	if contains(results, "/dirb/other") {
 		t.Errorf("should results should not contain '/dirb/other', got results=%q\n", results)
-  }
+	}
 }
 
 func TestComputeDirectory2(t *testing.T) {
@@ -102,7 +102,7 @@ func TestComputeDirectory2(t *testing.T) {
 		t.Errorf("should err=nil, got err=%q\n", err)
 	}
 
-  results := s.ComputeDirectory("../fixtures/")
+	results := s.ComputeDirectory("../fixtures/")
 	if len(results) != 0 {
 		t.Errorf("should len(results)='0', got len(results)=%d\n", len(results))
 	}
@@ -117,22 +117,22 @@ func TestComputeDirectory3(t *testing.T) {
 		t.Errorf("should err=nil, got err=%q\n", err)
 	}
 
-  results := s.ComputeDirectory("../fixtures/")
+	results := s.ComputeDirectory("../fixtures/")
 
 	if len(results) != 10 {
 		t.Errorf("should len(results)='10', got results=%q\n", results)
 	}
 
-  if contains(results, "/some") {
+	if contains(results, "/some") {
 		t.Errorf("should results should not contain '/some', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dira/some") {
+	if contains(results, "/dira/some") {
 		t.Errorf("should results should not contain '/dira/some', got results=%q\n", results)
-  }
-  if contains(results, "/dirb/other/some") {
+	}
+	if contains(results, "/dirb/other/some") {
 		t.Errorf("should results should not contain '/dirb/other/some', got results=%q\n", results)
-  }
+	}
 }
 
 func TestComputeDirectory4(t *testing.T) {
@@ -144,27 +144,27 @@ func TestComputeDirectory4(t *testing.T) {
 		t.Errorf("should err=nil, got err=%q\n", err)
 	}
 
-  results := s.ComputeDirectory("../fixtures/")
+	results := s.ComputeDirectory("../fixtures/")
 
 	if len(results) != 12 {
 		t.Errorf("should len(results)='12', got results=%q\n", results)
 	}
 
-  if contains(results, "/some") {
+	if contains(results, "/some") {
 		t.Errorf("should results should not contain '/some', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dira/some")==false {
+	if contains(results, "/dira/some") == false {
 		t.Errorf("should results should contain '/dira/some', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dirb/other/some")==false {
+	if contains(results, "/dirb/other/some") == false {
 		t.Errorf("should results should contain '/dirb/other/some', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/someother")==false {
+	if contains(results, "/someother") == false {
 		t.Errorf("should results should contain '/someother', got results=%q\n", results)
-  }
+	}
 }
 
 func TestComputeDirectory5(t *testing.T) {
@@ -176,27 +176,27 @@ func TestComputeDirectory5(t *testing.T) {
 		t.Errorf("should err=nil, got err=%q\n", err)
 	}
 
-  results := s.ComputeDirectory("../fixtures/")
+	results := s.ComputeDirectory("../fixtures/")
 
 	if len(results) != 12 {
 		t.Errorf("should len(results)='12', got results=%q\n", results)
 	}
 
-  if contains(results, "/someother") {
+	if contains(results, "/someother") {
 		t.Errorf("should results should not contain '/someother', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dira/some")==false {
+	if contains(results, "/dira/some") == false {
 		t.Errorf("should results should contain '/dira/some', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dirb/other/some")==false {
+	if contains(results, "/dirb/other/some") == false {
 		t.Errorf("should results should contain '/dirb/other/some', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/some")==false {
+	if contains(results, "/some") == false {
 		t.Errorf("should results should contain '/some', got results=%q\n", results)
-  }
+	}
 }
 
 func TestComputeDirectory6(t *testing.T) {
@@ -208,43 +208,43 @@ func TestComputeDirectory6(t *testing.T) {
 		t.Errorf("should err=nil, got err=%q\n", err)
 	}
 
-  results := s.ComputeDirectory("../fixtures/")
+	results := s.ComputeDirectory("../fixtures/")
 
 	if len(results) != 9 {
 		t.Errorf("should len(results)='9', got results=%q\n", results)
 	}
 
-  if contains(results, "/other") {
+	if contains(results, "/other") {
 		t.Errorf("should results should not contain '/other', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dira/other") {
+	if contains(results, "/dira/other") {
 		t.Errorf("should results should not contain '/dira/other', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dirb/other/some") {
+	if contains(results, "/dirb/other/some") {
 		t.Errorf("should results should not contain '/dirb/other/some', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dirb/other/fileb") {
+	if contains(results, "/dirb/other/fileb") {
 		t.Errorf("should results should not contain '/dirb/other/fileb', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/othera")==false {
+	if contains(results, "/othera") == false {
 		t.Errorf("should results should contain '/othera', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/otherfile")==false {
+	if contains(results, "/otherfile") == false {
 		t.Errorf("should results should contain '/otherfile', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/someother")==false {
+	if contains(results, "/someother") == false {
 		t.Errorf("should results should contain '/someother', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dira/someother")==false {
+	if contains(results, "/dira/someother") == false {
 		t.Errorf("should results should contain '/dira/someother', got results=%q\n", results)
-  }
+	}
 }
 
 func TestComputeDirectory7(t *testing.T) {
@@ -256,25 +256,25 @@ func TestComputeDirectory7(t *testing.T) {
 		t.Errorf("should err=nil, got err=%q\n", err)
 	}
 
-  results := s.ComputeDirectory("../fixtures/")
+	results := s.ComputeDirectory("../fixtures/")
 
 	if len(results) != 12 {
 		t.Errorf("should len(results)='12', got results=%q\n", results)
 	}
 
-  if contains(results, "/dirb/other/some") {
+	if contains(results, "/dirb/other/some") {
 		t.Errorf("should results should not contain '/dirb/other/some', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/some")==false {
+	if contains(results, "/some") == false {
 		t.Errorf("should results should contain '/some', got results=%q\n", results)
-  }
-  if contains(results, "/someother")==false {
+	}
+	if contains(results, "/someother") == false {
 		t.Errorf("should results should contain '/someother', got results=%q\n", results)
-  }
-  if contains(results, "/dira/some")==false {
+	}
+	if contains(results, "/dira/some") == false {
 		t.Errorf("should results should contain '/dira/some', got results=%q\n", results)
-  }
+	}
 }
 
 func TestComputeDirectory8(t *testing.T) {
@@ -286,32 +286,32 @@ func TestComputeDirectory8(t *testing.T) {
 		t.Errorf("should err=nil, got err=%q\n", err)
 	}
 
-  results := s.ComputeDirectory("../fixtures/")
+	results := s.ComputeDirectory("../fixtures/")
 
 	if len(results) != 10 {
 		t.Errorf("should len(results)='10', got results=%q\n", results)
 	}
 
-  if contains(results, "/dirb/other/some") {
+	if contains(results, "/dirb/other/some") {
 		t.Errorf("should results should not contain '/dirb/other/some', got results=%q\n", results)
-  }
+	}
 
-  if contains(results, "/dirb") {
+	if contains(results, "/dirb") {
 		t.Errorf("should results should not contain '/dirb', got results=%q\n", results)
-  }
-  if contains(results, "/dirb/other/fileb") {
+	}
+	if contains(results, "/dirb/other/fileb") {
 		t.Errorf("should results should not contain '/dirb/other/fileb', got results=%q\n", results)
-  }
-  if contains(results, "/dirb/fileb") {
+	}
+	if contains(results, "/dirb/fileb") {
 		t.Errorf("should results should not contain '/dirb/fileb', got results=%q\n", results)
-  }
+	}
 }
 
-func contains (s []string, l string) bool {
-  for _, v := range s {
-    if l==v {
-      return true
-    }
-  }
-  return false
+func contains(s []string, l string) bool {
+	for _, v := range s {
+		if l == v {
+			return true
+		}
+	}
+	return false
 }
