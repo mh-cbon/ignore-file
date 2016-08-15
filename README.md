@@ -1,8 +1,6 @@
 # ignore-file
 
-Parse an `ignore` file, such as `.gitignore`,
-apply it on the directory of the file
-and print non-ignored files.
+Parse and test an ignore file, such as `.gitignore`
 
 # Install
 

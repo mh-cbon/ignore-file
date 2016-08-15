@@ -1,0 +1,32 @@
+{
+  "product": "ignore-file",
+  "company": "mh-cbon",
+  "license": "LICENSE",
+  "upgrade-code": "07DDC644-9E58-474C-B8E8-9B42E34C6552",
+  "files": {
+    "guid": "B311536C-0F81-48F6-8D14-81A026D2F69B",
+    "items": [
+      "ignore-file.exe"
+    ]
+  },
+  "env": {
+    "guid": "530C6689-D679-4A54-84E8-CB0D4559624E",
+    "vars": [
+      {
+        "name": "PATH",
+        "value": "[INSTALLDIR]",
+        "permanent": "no",
+        "system": "no",
+        "action": "set",
+        "part": "last"
+      }
+    ]
+  },
+  "shortcuts": {},
+  "choco": {
+    "description": "Parse and test an ignore file",
+    "project-url": "https://github.com/mh-cbon/ignore-file",
+    "tags": "vcs",
+    "license-url": "https://github.com/mh-cbon/ignore-file/blob/master/LICENSE"
+  }
+}

@@ -1,0 +1,53 @@
+sudo: required
+
+services:
+  - docker
+
+language: go
+
+go:
+  - tip
+
+env:
+  global:
+    - MYAPP=ignore-fie
+    - MYEMAIL=mh-cbon@users.noreply.github.com
+    - secure: xxx
+
+before_install:
+  - sudo apt-get -qq update
+  - mkdir -p ${GOPATH}/bin
+  - cd ~
+  - curl https://glide.sh/get | sh
+
+install:
+  - cd $GOPATH/src/github.com/mh-cbon/$MYAPP
+  - glide install
+  - go install
+
+script: echo "pass"
+
+before_deploy:
+  - mkdir -p build/{386,amd64}
+  - GOOS=linux GOARCH=386 go build --ldflags "-X main.VERSION=${TRAVIS_TAG}" -o build/386/$MYAPP main.go
+  - GOOS=linux GOARCH=amd64 go build --ldflags "-X main.VERSION=${TRAVIS_TAG}" -o build/amd64/$MYAPP main.go
+  - curl -L https://raw.githubusercontent.com/mh-cbon/go-bin-deb/master/create-pkg.sh | GH=mh-cbon/$MYAPP sh -xe
+  - curl -L https://raw.githubusercontent.com/mh-cbon/go-bin-rpm/master/create-pkg.sh | GH=mh-cbon/$MYAPP sh -xe
+
+after_deploy:
+  - curl -L https://raw.githubusercontent.com/mh-cbon/go-bin-deb/master/setup-repository.sh | GH=mh-cbon/$MYAPP EMAIL=$MYEMAIL sh -xe
+  - curl -L https://raw.githubusercontent.com/mh-cbon/go-bin-rpm/master/setup-repository.sh | GH=mh-cbon/$MYAPP EMAIL=$MYEMAIL sh -xe
+
+deploy:
+  provider: releases
+  api_key:
+    secure: xxx
+  file_glob: true
+  file:
+    - $MYAPP-386.deb
+    - $MYAPP-amd64.deb
+    - $MYAPP-386.rpm
+    - $MYAPP-amd64.rpm
+  skip_cleanup: true
+  on:
+tags: true
