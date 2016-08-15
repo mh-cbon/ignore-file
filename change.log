@@ -1,4 +1,15 @@
 
+0.0.2
+
+  * README: add library example usage, add install section
+  * release flow: fix travis and appveyor files
+
+  - mh-cbon <mh-cbon@users.noreply.github.com>
+
+-- mh-cbon <mh-cbon@users.noreply.github.com>; Mon, 15 Aug 2016 15:43:12 +0200
+
+
+
 0.0.1
 
   * Initial release
