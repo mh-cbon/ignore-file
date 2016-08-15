@@ -5,6 +5,24 @@ Installed-Size: 3.7 kB
 Maintainer: mh-cbon <mh-cbon@users.noreply.github.com>
 Architecture: amd64
 Source: ignore-file
+Version: 0.0.3
+Filename: pool/contrib/i/ignore-file/ignore-file-0.0.3_amd64.deb
+Size: 960698
+MD5sum: 0de9f54a58f62d9b82f213aee119eb89
+SHA1: d8696b5450de59e1e7469a454f2856bd63747c49
+SHA256: 27150b28bb04c5ba56b14a4cba84d958107ff37db747c9175e4b0d47180ec07b
+SHA512: 0999e340f6a2e51700d07e73d8f66a0df30a4a3680a63dc4b68c771757c5c325fdf669388ccc60d8b0841248ea2766e595bb95235ac0fefcc6641a1bd983dab9
+Description: Parse and test an ignore file
+Homepage: http://github.com/mh-cbon/ignore-file
+Package-Type: deb
+
+Package: ignore-file
+Priority: extra
+Section: unknown
+Installed-Size: 3.7 kB
+Maintainer: mh-cbon <mh-cbon@users.noreply.github.com>
+Architecture: amd64
+Source: ignore-file
 Version: 0.0.2
 Filename: pool/contrib/i/ignore-file/ignore-file-0.0.2_amd64.deb
 Size: 959832
@@ -13,6 +31,6 @@ SHA1: 4eaa356022b39a0015031d5b161b42d04b7a586d
 SHA256: 762e223b24798ab7ba99dbc3f76c7166a3d72235e38be1703d419ad33854560d
 SHA512: adacec9b87764f2cb576dcc2947cf541dd11395089aaaf83be9ec3099954e0ed0afdeaeeadbb593448d0a3497336634d111e6af2aad7e0ec1e51e091dc27cd28
 Description: Parse and test an ignore file
-Package-Type: deb
 Homepage: http://github.com/mh-cbon/ignore-file
+Package-Type: deb
 
