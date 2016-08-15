@@ -1,0 +1,6 @@
+[ignore-file]
+name=Parse and test an ignore file
+baseurl=https://mh-cbon.github.io/ignore-file/rpm/$basearch/
+enabled=1
+skip_if_unavailable=1
+gpgcheck=0
