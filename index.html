@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ignore-file by mh-cbon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Ignore-file</h1>
+      <h2 class="project-tagline">Parse and test an ignore file, such as .gitignore</h2>
+      <a href="https://github.com/mh-cbon/ignore-file" class="btn">View on GitHub</a>
+      <a href="https://github.com/mh-cbon/ignore-file/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mh-cbon/ignore-file/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="ignore-file" class="anchor" href="#ignore-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ignore-file</h1>
+
+<p>Parse and test an ignore file, such as <code>.gitignore</code></p>
+
+<h1>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h1>
+
+<p>Pick an msi package <a href="https://github.com/mh-cbon/ignore-file/releases">here</a>!</p>
+
+<p><strong>chocolatey</strong></p>
+
+<div class="highlight highlight-source-shell"><pre>choco install ignore-file</pre></div>
+
+<p><strong>deb/rpm repositories</strong></p>
+
+<div class="highlight highlight-source-shell"><pre>wget -O - https://raw.githubusercontent.com/mh-cbon/latest/master/source.sh \
+<span class="pl-k">|</span> GH=mh-cbon/ignore-file sh -xe
+<span class="pl-c"># or</span>
+curl -L https://raw.githubusercontent.com/mh-cbon/latest/master/source.sh \
+<span class="pl-k">|</span> GH=mh-cbon/ignore-file sh -xe</pre></div>
+
+<p><strong>deb/rpm packages</strong></p>
+
+<div class="highlight highlight-source-shell"><pre>curl -L https://raw.githubusercontent.com/mh-cbon/latest/master/install.sh \
+<span class="pl-k">|</span> GH=mh-cbon/ignore-file sh -xe
+<span class="pl-c"># or</span>
+wget -q -O - --no-check-certificate \
+https://raw.githubusercontent.com/mh-cbon/latest/master/install.sh \
+<span class="pl-k">|</span> GH=mh-cbon/ignore-file sh -xe</pre></div>
+
+<p><strong>go</strong></p>
+
+<div class="highlight highlight-source-shell"><pre>mkdir -p <span class="pl-smi">$GOPATH</span>/src/github.com/mh-cbon
+<span class="pl-c1">cd</span> <span class="pl-smi">$GOPATH</span>/src/github.com/mh-cbon
+git clone https://github.com/mh-cbon/ignore-file.git
+<span class="pl-c1">cd</span> ignore-file
+glide install
+go install</pre></div>
+
+<h1>
+<a id="usage-as-a-lib" class="anchor" href="#usage-as-a-lib" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage as a lib</h1>
+
+<div class="highlight highlight-source-go"><pre><span class="pl-k">package</span> main
+
+<span class="pl-k">import</span> (
+    <span class="pl-s"><span class="pl-pds">"</span>fmt<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>github.com/mh-cbon/ignore-file/ignored<span class="pl-pds">"</span></span>
+)
+
+
+<span class="pl-k">func</span> <span class="pl-en">main</span>() {
+
+  <span class="pl-smi">ignore</span> <span class="pl-k">:=</span> ignored.<span class="pl-smi">Ignored</span>{}
+  <span class="pl-k">if</span> <span class="pl-smi">err</span> <span class="pl-k">:=</span> ignore.<span class="pl-c1">Load</span>(<span class="pl-s"><span class="pl-pds">"</span>.gitignore<span class="pl-pds">"</span></span>); err != <span class="pl-c1">nil</span> {
+    fmt.<span class="pl-c1">Println</span>(err)
+    <span class="pl-k">return</span> <span class="pl-c1">nil</span>
+  }
+
+  <span class="pl-k">if</span> <span class="pl-smi">err</span> <span class="pl-k">:=</span> ignore.<span class="pl-c1">Append</span>(<span class="pl-s"><span class="pl-pds">"</span>.git<span class="pl-pds">"</span></span>); err != <span class="pl-c1">nil</span> {
+    fmt.<span class="pl-c1">Println</span>(err)
+    <span class="pl-k">return</span> <span class="pl-c1">nil</span>
+  }
+
+  <span class="pl-smi">computed</span> <span class="pl-k">:=</span> ignore.<span class="pl-c1">ComputeDirectory</span>(<span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-pds">"</span></span>)
+  <span class="pl-k">for</span> <span class="pl-smi">_</span>, <span class="pl-smi">l</span> <span class="pl-k">:=</span> <span class="pl-k">range</span> computed {
+    fmt.<span class="pl-c1">Println</span>(l)
+  }
+}</pre></div>
+
+<h1>
+<a id="usage-as-a-binary" class="anchor" href="#usage-as-a-binary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage as a binary</h1>
+
+<div class="highlight highlight-source-shell"><pre>NAME:
+   ignore-file - Test a ignore file
+
+USAGE:
+   ignore-file <span class="pl-k">&lt;</span>ignore file path<span class="pl-k">&gt;</span> <span class="pl-k">&lt;</span>options<span class="pl-k">&gt;</span>
+
+VERSION:
+   0.0.0
+
+COMMANDS:
+     <span class="pl-c1">help</span>, h  Shows a list of commands or <span class="pl-c1">help</span> <span class="pl-k">for</span> one <span class="pl-c1">command</span>
+
+GLOBAL OPTIONS:
+   --json, -j              <span class="pl-k">return</span> json response
+   --also value, -a value  Add new rule
+   --help, -h              show <span class="pl-c1">help</span>
+   --version, -v           print the version
+
+EXAMPLE:
+  ignore-file .gitignore
+  ignore-file -a .git .gitignore
+  ignore-file -a .git -a someother .gitignore</pre></div>
+
+<p>In other words,</p>
+
+<div class="highlight highlight-source-shell"><pre>$ ignore-file -a .git .gitignore
+/.gitignore
+/README.md
+/fixtures/dira/fileb
+/fixtures/dira/other
+/fixtures/dira/some
+/fixtures/dira/someother
+/fixtures/dirb/fileb
+/fixtures/dirb/other/fileb
+/fixtures/dirb/other/some
+/fixtures/filea
+/fixtures/other
+/fixtures/othera
+/fixtures/otherfile
+/fixtures/some
+/fixtures/someother
+/glide.lock
+/glide.yaml
+/ignored/index.go
+/ignored/index_test.go
+/main.go</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mh-cbon/ignore-file">Ignore-file</a> is maintained by <a href="https://github.com/mh-cbon">mh-cbon</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
