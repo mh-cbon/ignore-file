@@ -1,5 +1,5 @@
 
-UNRELEASED
+0.0.3
 
   * appveyor: update choco key
 
@@ -27,3 +27,5 @@ UNRELEASED
   - mh-cbon <mh-cbon@users.noreply.github.com>
 
 -- mh-cbon <mh-cbon@users.noreply.github.com>; Mon, 15 Aug 2016 15:17:21 +0200
+
+
