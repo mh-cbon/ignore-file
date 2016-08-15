@@ -1,5 +1,19 @@
 # Changelog - ignore-file
 
+### 0.0.3
+
+__Changes__
+
+- appveyor: update choco key
+
+__Contributors__
+
+- mh-cbon
+
+Released by mh-cbon, Mon 15 Aug 2016 -
+[see the diff](https://github.com/mh-cbon/ignore-file/compare/0.0.2...0.0.3#diff)
+______________
+
 ### 0.0.2
 
 __Changes__
