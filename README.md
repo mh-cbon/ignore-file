@@ -58,21 +58,21 @@ import (
 
 func main() {
 
-	ignore := ignored.Ignored{}
-	if err := ignore.Load(".gitignore"); err != nil {
+  ignore := ignored.Ignored{}
+  if err := ignore.Load(".gitignore"); err != nil {
     fmt.Println(err)
     return nil
-	}
+  }
 
   if err := ignore.Append(".git"); err != nil {
     fmt.Println(err)
     return nil
   }
 
-	computed := ignore.ComputeDirectory(".")
-	for _, l := range computed {
-		fmt.Println(l)
-	}
+  computed := ignore.ComputeDirectory(".")
+  for _, l := range computed {
+    fmt.Println(l)
+  }
 }
 ```
 
