@@ -1,0 +1,18 @@
+Package: ignore-file
+Priority: extra
+Section: unknown
+Installed-Size: 3.2 kB
+Maintainer: mh-cbon <mh-cbon@users.noreply.github.com>
+Architecture: i386
+Source: ignore-file
+Version: 0.0.2
+Filename: pool/contrib/i/ignore-file/ignore-file-0.0.2_386.deb
+Size: 896144
+MD5sum: 760bba930c44544b5987805bc7b455a4
+SHA1: 85db82f8f617e538418ba005bff06efb5ec7a6e2
+SHA256: 0dd6450bf4f41e9b96685169d8edaad100e0871b513451fb092e2f5696f27d23
+SHA512: 4e06a7db8cf08241b19344491e3918f9cb783e13ff2b456c5dc50e44fe546f19e946073ad704b6256923ce89f0f20712352655b88731989af058d2ba120da3ea
+Description: Parse and test an ignore file
+Package-Type: deb
+Homepage: http://github.com/mh-cbon/ignore-file
+
